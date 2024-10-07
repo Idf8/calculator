@@ -1,0 +1,11 @@
+[33mcommit 23cdfcf3449d669ae48b07b6a014bf73da4e251c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Ian Fraser <iandfraser8@gmail.com>
+Date:   Mon Oct 7 16:30:19 2024 +1000
+
+    just set up basic html/js and css with basic buttons
+
+[33mcommit fafc863dda918d21c94990b6f50368be84ce8316[m
+Author: Idf8 <110073420+Idf8@users.noreply.github.com>
+Date:   Sun Mar 17 16:51:03 2024 +1000
+
+    Initial commit
