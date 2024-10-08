@@ -2,6 +2,7 @@ let symbol; // most recently pressed operation symbol +,-,* etc
 let answer = 0; // stored result of previous operations
 let displayValue = "";
 let input = ""; // amount to calculate against answer
+let firstFlag = true; // input before any calculations, need to append directly to answer
 
 window.onload = ()=>{
     const plusButton = document.getElementById("plus");
@@ -11,6 +12,9 @@ window.onload = ()=>{
 
     display.innerHTML = answer;
 
+
+    // set the onclick of each number button to add the corresponding value to input
+    // Then update the display accordingly, we convert to number to a string as we wish to concatenate not add
     for (let i = 0; i <=9; i++) {
         
         const numbtn = document.getElementById(i.toString());
@@ -21,15 +25,21 @@ window.onload = ()=>{
     }
 
     plusButton.onclick = ()=> {
+        if (firstFlag && input != "") {
+            answer = input;
+            firstFlag = false;
+        }
         symbol = "+";
-        display.innerHTML = input;
         input = "";
         
     }
 
     minusButton.onclick = ()=> {
+        if (firstFlag && input != "") {
+            answer = input;
+            firstFlag = false;
+        }
         symbol = "-";
-        display.innerHtml = input;
         input = "";
     }
 
