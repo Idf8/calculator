@@ -7,6 +7,8 @@ let firstFlag = true; // input before any calculations, need to append directly 
 window.onload = ()=>{
     const plusButton = document.getElementById("plus");
     const minusButton = document.getElementById("-");
+    const timesButton = document.getElementById("times");
+    const divideButton = document.getElementById("divide");
     const equalsButton = document.getElementById("=");
     const display = document.getElementById("answer-box");
 
@@ -22,6 +24,24 @@ window.onload = ()=>{
             input += i.toString();
             display.innerHTML = input;
         }
+    }
+
+    timesButton.onClick = ()=> {
+        if (firstFlag && input != "") {
+            answer = input;
+            firstFlag = false;
+        }
+        symbol = "*";
+        input = "";  
+    }
+
+    divideButton.onClick = ()=> {
+        if (firstFlag && input != "") {
+            answer = input;
+            firstFlag = false;
+        }
+        symbol = "%";
+        input = "";  
     }
 
     plusButton.onclick = ()=> {
@@ -44,14 +64,24 @@ window.onload = ()=>{
     }
 
     equalsButton.onclick = ()=> {
-        console.log(input);
-        console.log(symbol);
-        if (symbol == "+") {
-            answer += Number(input);
 
-        } else if (symbol == "-") {
-            answer -= Number(input);
+        switch(symbol) {
+            case "+":
+                answer += Number(input);
+                break;
+            case "-":
+                answer -= Number(input);
+                break;
+            case "*":
+                answer *= Number(input);
+                break;
+            case "%":
+                answer %= Number(input);
+                break;
+            default:
+                console.log("Default, no symbol");
         }
+ 
         display.innerHTML = answer;
         
     }
