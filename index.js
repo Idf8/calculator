@@ -73,24 +73,26 @@ window.onload = ()=>{
 
     equalsButton.onclick = ()=> {
         submitNum = parseInt(input);
+        let answerNum = parseInt(answer);
 
         switch(symbol) {
             case "+":
-                answer += +submitNum;
+                answerNum += submitNum;
                 break;
             case "-":
-                answer = answer - submitNum;
+                answerNum = answerNum - submitNum;
                 break;
             case "*":
-                answer = answer * submitNum;
+                answerNum = answer * submitNum;
                 break;
             case "%":
-                answer = answer / submitNum;
+                answerNum = answerNum / submitNum;
                 break;
             default:
                 console.log("Default, no symbol");
         }
- 
+
+        answer = answerNum.toString();
         display.innerHTML = answer;
         
     }
