@@ -5,12 +5,17 @@ let input = ""; // amount to calculate against answer
 let firstFlag = true; // input before any calculations, need to append directly to answer
 
 window.onload = ()=>{
+
+   
     const plusButton = document.getElementById("plus");
     const minusButton = document.getElementById("-");
-    const timesButton = document.getElementById("times");
+    const timesButton = document.getElementById("times");   
     const divideButton = document.getElementById("divide");
+
     const equalsButton = document.getElementById("=");
     const display = document.getElementById("answer-box");
+
+  
 
     display.innerHTML = answer;
 
@@ -26,23 +31,7 @@ window.onload = ()=>{
         }
     }
 
-    timesButton.onClick = ()=> {
-        if (firstFlag && input != "") {
-            answer = input;
-            firstFlag = false;
-        }
-        symbol = "*";
-        input = "";  
-    }
-
-    divideButton.onClick = ()=> {
-        if (firstFlag && input != "") {
-            answer = input;
-            firstFlag = false;
-        }
-        symbol = "%";
-        input = "";  
-    }
+ 
 
     plusButton.onclick = ()=> {
         if (firstFlag && input != "") {
@@ -63,20 +52,40 @@ window.onload = ()=>{
         input = "";
     }
 
+    timesButton.onclick = ()=> {
+        
+        if (firstFlag && input != "") {
+            answer = input;
+            firstFlag = false;
+        }
+        symbol = "*";
+        input = "";  
+    }
+
+    divideButton.onclick = ()=> {
+        if (firstFlag && input != "") {
+            answer = input;
+            firstFlag = false;
+        }
+        symbol = "%";
+        input = "";  
+    }
+
     equalsButton.onclick = ()=> {
+        submitNum = parseInt(input);
 
         switch(symbol) {
             case "+":
-                answer += Number(input);
+                answer += +submitNum;
                 break;
             case "-":
-                answer -= Number(input);
+                answer = answer - submitNum;
                 break;
             case "*":
-                answer *= Number(input);
+                answer = answer * submitNum;
                 break;
             case "%":
-                answer %= Number(input);
+                answer = answer / submitNum;
                 break;
             default:
                 console.log("Default, no symbol");
