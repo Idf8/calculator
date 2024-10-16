@@ -13,6 +13,7 @@ window.onload = ()=>{
     const minusButton = document.getElementById("-");
     const timesButton = document.getElementById("times");   
     const divideButton = document.getElementById("divide");
+    const squareButton = document.getElementById("squared");
 
     const equalsButton = document.getElementById("=");
     const display = document.getElementById("answer-box");
@@ -90,6 +91,20 @@ window.onload = ()=>{
         input = "";
         equalsFlag = false;  
         
+    }
+
+    squareButton.onclick = ()=> {
+        if (firstFlag && input != "") {
+            answer = input;
+            firstFlag = false;
+        } else if (!equalsFlag && input != "") {   
+            doCalculation(display);            
+        }
+        let answerNum = parseInt(answer);
+        answer = (answerNum * answerNum).toString();
+        display.innerHTML= answer;
+
+        input = "";
     }
 
 
